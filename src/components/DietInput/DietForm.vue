@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 
 export default {
   name: "DietForm",
@@ -33,29 +32,6 @@ export default {
         name:this.mealName,
       });
     },
-    getMeal(event) {
-      event.preventDefault();
-      axios.get('https://api.edamam.com/search', {
-        params: {
-          q:'chicken',
-          app_id:'9f11df44',
-          app_key: '2dfa2472b9cde9a205f0bc0e15f72289'
-        }
-      })
-          .then(res => {
-            this.setMeal(res.data["hits"]);
-          })
-      // this.$emit('onGetMeal', {
-      //   message:'woah a meal',
-      // })
-    },
-    setMeal(meals){
-      meals.forEach((meal) => {
-        this.$emit('onGetMeal', {
-          message:meal['recipe']['label'],
-        })
-      })
-    }
   },
 }
 </script>

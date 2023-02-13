@@ -5,6 +5,10 @@
   </div>
 </template>
 <script>
+//todo: add filtering options in the form
+//add additional information to the menu items
+//style a bit more
+//call it a day
   import {defineComponent} from "vue";
   import DietFormContainer from "./components/DietInput/DietFormContainer.vue";
 

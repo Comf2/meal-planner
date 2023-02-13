@@ -7,18 +7,16 @@
         class="flex justify-center items-center"
         v-if="loading">
       <div class=" w-5 aspect-square border-slate-500 border-2 border-t-2 border-t-slate-900 rounded-full animate-spin"></div>
-
     </div>
     <div
         v-else
-        class="bg-slate-50 h-fit max-h-52 w-full overflow-y-scroll mt-3 rounded-xl">
+        class="bg-slate-50 h-fit max-h-[60vh] w-full overflow-y-scroll mt-3 rounded-xl p-3">
       <div
           class="mb-3 "
           v-for="meal in this.mealResults">
-        {{meal}}
+        <mealItem :meal="meal"/>
       </div>
     </div>
-
   </div>
 
 </template>
@@ -26,12 +24,13 @@
 <script>
 import DietForm from "./DietForm.vue";
 import axios from "axios";
-
+import mealItem from "../diet-output/mealItem.vue";
 
 export default {
   name: "DietFormContainer",
   components: {
     DietForm,
+    mealItem,
   },
   data(){
     return {
@@ -58,7 +57,8 @@ export default {
     },
     setMeal(meals){
       meals.forEach((meal) => {
-        this.mealResults.push(meal['recipe']['label'])
+        console.log(meal)
+        this.mealResults.push(meal)
         })
       }
     }
