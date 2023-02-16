@@ -4,6 +4,8 @@
         :image="meal['recipe']['image']"
         />
     <p class="text-3xl md:text-xl sm:text-lg">{{meal['recipe']['label']}}</p>
+    <p class="text-3xl md:text-xl sm:text-lg">{{Math.floor(meal['recipe']['calories'])}}</p>
+
   </div>
 
 </template>

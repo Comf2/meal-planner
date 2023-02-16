@@ -46,19 +46,23 @@ export default {
         params: {
           q:meal.name,
           app_id:'9f11df44',
-          app_key: '2dfa2472b9cde9a205f0bc0e15f72289'
+          app_key: '2dfa2472b9cde9a205f0bc0e15f72289',
         }
       })
           .then(res => {
             this.loading = false;
-
-            this.setMeal(res.data["hits"]);
+            console.log(res.data['hits'])
+            //not right way to do it, but it works LMAOOO L YOU SUCK I'M JUST BETTER LLL
+            this.setMeal(res.data["hits"], meal.calories);
           })
     },
-    setMeal(meals){
+    setMeal(meals, maxCal){
       meals.forEach((meal) => {
         console.log(meal)
-        this.mealResults.push(meal)
+        if(meal['recipe']['calories'] <= maxCal){
+          console.log(maxCal)
+          this.mealResults.push(meal)
+        }
         })
       }
     }
