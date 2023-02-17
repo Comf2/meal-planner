@@ -5,7 +5,7 @@
         />
     <p class="text-3xl md:text-xl sm:text-lg">{{meal['recipe']['label']}}</p>
     <p class="text-3xl md:text-xl sm:text-lg">{{Math.floor(meal['recipe']['calories'])}}</p>
-
+    <router-link :to="{name:'meal'}">See More Info...</router-link>
   </div>
 
 </template>
