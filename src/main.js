@@ -4,8 +4,18 @@ import './index.css'
 import App from './App.vue'
 
 const routes = [
-        {path:'', name: 'home', component: () => import('@/views/Home.vue') },
-        {path:'/meal', name: 'meal', component: () => import('@/views/Meal.vue') },
+        {
+                path:'',
+                name: 'home',
+                component: () => import('@/views/Home.vue')
+        },
+        {
+                path:'/meal',
+                name: 'meal',
+                component: () => import('@/views/Meal.vue'),
+                props: true,
+
+        },
 ]
 
 const router = createRouter({
