@@ -1,15 +1,15 @@
 <template>
-  <div class="min-h-screen w-full bg-slate-900">
+  <div class="min-h-screen w-full bg-slate-200">
 
-    <h1>Meal^^</h1>
-    <p>{{meal['recipe']['label']}}</p>
+    <h1
+        @click="logMeal"
+        class="text-3xl">Meal^^</h1>
+    <h2 class="text-5xl"> {{this.meal['recipe']['label']}}</h2>
     <router-link :to="{name:'home'}">Home</router-link>
   </div>
 </template>
 
 <script>
-//TODO: import vuex
-//use it to pass current meal to meal.vue
 //profit
 //add more filtering
 export default {
@@ -17,13 +17,16 @@ export default {
   props: {
 
   },
-  data(){
+  data() {
     return {
-      meal: history.state,
+      meal: this.$store.state.meal,
     }
   },
-  created() {
-  }
+  methods: {
+    logMeal() {
+      console.log(this.meal);
+    }
+  },
 }
 </script>
 

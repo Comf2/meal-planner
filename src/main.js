@@ -1,8 +1,13 @@
 import { createApp } from 'vue'
+
 import {createRouter, createWebHistory} from 'vue-router';
+
 import './index.css'
 import App from './App.vue'
 
+import store from "@/librarys/store.js";
+
+//vue router
 const routes = [
         {
                 path:'',
@@ -23,8 +28,10 @@ const router = createRouter({
         history: createWebHistory(),
 })
 
-export default router;
+//vuex
 
-createApp(App)
-    .use(router)
-    .mount('#app')
+//that was the worst debugging experience of my life jesus
+const app = createApp(App)
+    app.use(router)
+        app.use(store)
+    app.mount('#app')

@@ -5,17 +5,11 @@
         />
     <p class="text-3xl md:text-xl sm:text-lg">{{meal['recipe']['label']}}</p>
     <p class="text-3xl md:text-xl sm:text-lg">{{Math.floor(meal['recipe']['calories'])}}</p>
-    <router-link
-        :to="{
-            name:'meal',
-            state: {meal: meal}
-        }"
-    >
       <p
+          @click="routeMeal"
           class="text-slate-700 underline pointer hover:text-slate-500 transition-all">
           See More Info...
       </p>
-    </router-link>
   </div>
 
 </template>
@@ -30,7 +24,16 @@ export default {
   props: {
     meal: {
       type: Object,
+      required:true,
     },
+  },
+  methods: {
+    routeMeal() {
+      this.$store.commit('addMeal', this.meal);
+      this.$router.push( {
+        name:'meal',
+      })
+    }
   },
 }
 </script>

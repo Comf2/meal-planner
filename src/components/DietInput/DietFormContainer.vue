@@ -51,16 +51,13 @@ export default {
       })
           .then(res => {
             this.loading = false;
-            console.log(res.data['hits'])
             //not right way to do it, but it works LMAOOO L YOU SUCK I'M JUST BETTER LLL
             this.setMeal(res.data["hits"], meal.calories);
           })
     },
     setMeal(meals, maxCal){
       meals.forEach((meal) => {
-        console.log(meal)
         if(meal['recipe']['calories'] <= maxCal){
-          console.log(maxCal)
           this.mealResults.push(meal)
         }
         })
